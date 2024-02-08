@@ -1,3 +1,6 @@
+* {
+    font-family: work sans;
+}
 
 body {
     background-image: url("/Assets/CyberPunkCityImage.jpg");
@@ -8,38 +11,92 @@ body {
 }
 
 header {
-    display: flex; 
-    width: 
+    display: flex;
+}
+
+div {
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 0 10% 0 0;
 }
 
 section {
     display: flex;
+    justify-content: flex-end;
     height: 60px;
+    width: 30%;
     margin-top: 1%;
 }
 
+/* 231, 18, 189, 0.797 */
 h1 {
-    color: white;
+    color: rgba(5, 61, 244, 0.651);
     width: 70%;
     margin-top: 1%;
+    font-size: 45px;
+    font-weight: 300
 }
 
+span {
+    color: rgba(0, 123, 255, 0.858);
+}
 
-#submitBox, #submitButton {
-    border: 5px solid rgba(142, 23, 211, 0);
-    background-color: rgba(152, 9, 192, 0.135);
-    border-radius: 10px; 
-    
+#submitBox,
+#submitButton {
+    border: 1px solid rgba(0, 123, 255, 0.452);
+    background-color: rgba(0, 123, 255, 0.452);
+    border-radius: 10px;
+    font-family: work sans;
+    font-weight: 300;
 }
 
 #submitBox {
-    margin: 5%;
+    width: 180px;
+    height: 35px;
+    margin: 0 0 4% 0;
 }
 
 #submitButton {
-    border: 5px solid rgba(142, 23, 211, 0);
-    border-radius: 10px;
-    color: rgba(255, 11, 251, 0.299);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 25px;
+    border-radius: 5px;
+    color: rgba(231, 18, 189, 0.797);
 }
 
+i {
+    border: 5px solid #00000000;
+    color: rgba(231, 18, 189, 0.797);
+    margin: 1% 5% 0 0;
+    width: 2%;
+}
 
+#submitButton:hover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 25px;
+    border-radius: 10px;
+    background-color: rgba(231, 18, 189, 0.797);
+    border: 1px solid rgba(231, 18, 189, 0.568);
+    color: rgb(0, 123, 255);
+    font-weight: 500;
+}
+
+#submitBox:focus {
+    background-color: rgba(0, 123, 255, 0.6);
+    border: 1px solid rgb(0, 123, 255, 0.6);
+    color: rgba(231, 18, 189, 0.797);
+    font-weight: 500;
+    outline: none;
+}
+
+i:hover {
+    border: 5px solid #00000000;
+    color: rgb(231, 18, 188);
+    margin: 1% 5% 0 0;
+    width: 2%;
+}
