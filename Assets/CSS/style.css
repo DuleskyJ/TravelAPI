@@ -1,0 +1,136 @@
+/* Restyled button color, add responsive layout code */
+* {
+    font-family: work sans;
+}
+
+body {
+    background-image: url("/Assets/CyberPunkCityImage.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    /* width: 100vh;  */
+}
+
+header {
+    display: flex;
+}
+
+div {
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 0 10% 0 0;
+}
+
+section {
+    display: flex;
+    justify-content: flex-end;
+    height: 60px;
+    width: 30%;
+    margin-top: 1%;
+}
+
+/* 231, 18, 189, 0.797 */
+h1 {
+    color: rgba(5, 61, 244, 0.651);
+    width: 70%;
+    margin-top: 1%;
+    font-size: 45px;
+    font-weight: 300;
+    padding-right: 10px;
+}
+
+span {
+    color: rgba(0, 123, 255, 0.858);
+}
+
+#submitBox,
+#submitButton {
+    border: 1px solid rgba(5, 61, 244, 0.452);
+    background-color: rgba(5, 61, 244, 0.452);
+    border-radius: 10px;
+    font-family: work sans;
+    font-weight: 300;
+}
+
+#submitBox {
+    width: 180px;
+    height: 35px;
+    margin: 0 0 4% 0;
+}
+
+input::placeholder {
+    padding: 10px;
+    font-size: 16px;
+    color: rgb(231, 18, 189, 0.797);
+}
+
+#submitButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 25px;
+    border-radius: 5px;
+    color: rgba(231, 18, 189, 0.797);
+}
+
+i {
+    border: 5px solid #00000000;
+    color: rgba(231, 18, 189, 0.797);
+    margin: 2% 4% 0 0;
+    width: 2%;
+}
+
+#submitButton:hover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 25px;
+    border-radius: 10px;
+    background-color: rgba(231, 18, 189, 0.797);
+    border: 1px solid rgba(231, 18, 189, 0.568);
+    color: rgb(5, 61, 244);
+    font-weight: 500;
+}
+
+#submitBox:focus {
+    background-color: rgba(5, 61, 244, 0.6);
+    border: 1px solid rgb(5, 61, 244, 0.6);
+    color: rgba(231, 18, 189, 0.797);
+    font-weight: 500;
+    outline: none;
+}
+
+i:hover {
+    border: 5px solid #00000000;
+    color: rgb(231, 18, 188);
+    margin: 1% 5% 0 0;
+    width: 2%;
+}
+
+#map{
+    height: 400px;
+    width: 400px;
+}
+
+/* was attempting to create a responsive layout, but im using the media selector worg apparently  */
+/* @media (min-width: 425px) {
+    header {
+        flex-direction: column;
+        align-items: center
+    }
+
+    i {
+        display: none;
+    }
+
+    section {
+        justify-content: center;
+    }
+    #submitBox {
+        width: 250px;
+        height: 40px;
+
+    }
+} */

@@ -1,24 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bulma or other css framework links here above style.css link -->
     <link rel="stylesheet" type="text/css" href="./Assets/CSS/style.css">
-    <title>Travel Planner</title>
+    <!-- The script line below is from: https://www.makeuseof.com/search-bar-html-css-javascript/ -->
+    <script src="https://kit.fontawesome.com/d69fb28507.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;300;500&display=swap" rel="stylesheet">
+    <title>Welcome to the coding bros travel app!</title>
 </head>
+
 <body>
-    
 
+    <header>
+        <h1><span>C</span>oding <span>B</span>ros - "Travel like a Pro"</h1>
+        <!-- The idea below is taken from:https://www.makeuseof.com/search-bar-html-css-javascript/ -->
 
+        <section>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <div>
+                <input type="text" id="submitBox" placeholder="Teleport Where?">
+                <button type="submit" id="submitButton">Show me!</button>
+            </div>
+        </section>
+    </header>
 
+    <div id="map">
 
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://kit.fontawesome.com/de6d64e34e.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
-    crossorigin="anonymous"></script>
-    <script src="./Assets/JS/script.js"></script>
+    </div>
 </body>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD84xL-EW-Inz01Pxoe3XleBCMT_ZZXuTw"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/de6d64e34e.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+<script src="./Assets/JS/script.js"></script>
+</body>
+
 </html>
