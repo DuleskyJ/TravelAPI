@@ -35,7 +35,8 @@ h1 {
     width: 70%;
     margin-top: 1%;
     font-size: 45px;
-    font-weight: 300
+    font-weight: 300;
+    padding-right: 10px;
 }
 
 span {
@@ -106,6 +107,11 @@ i:hover {
     color: rgb(231, 18, 188);
     margin: 1% 5% 0 0;
     width: 2%;
+}
+
+#map{
+    height: 400px;
+    width: 400px;
 }
 
 /* was attempting to create a responsive layout, but im using the media selector worg apparently  */
