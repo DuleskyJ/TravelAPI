@@ -6,6 +6,7 @@ submitButton.click(function (event) {
     var cityName = submitBox.val();
     console.log(cityName);
     getCoordinates(cityName);
+    getCityID(cityName);
 }); 
 
 
@@ -39,3 +40,64 @@ function getCoordinates(cityName) {
         .catch(error => console.error('Error:', error));
 
 }
+
+//lists 20 tourist attractions in or around target city--Requires ID code from getcityID
+function getAttractions (cityID) {
+    const url = 'https://tourist-attraction.p.rapidapi.com/search';
+    const options = {
+	method: 'POST',
+	headers: {
+		'content-type': 'application/x-www-form-urlencoded',
+		'X-RapidAPI-Key': '45534c69cfmsh2323382acbfdd65p128493jsnc2a053bfb606',
+		'X-RapidAPI-Host': 'tourist-attraction.p.rapidapi.com'
+	},
+	body: new URLSearchParams({
+        //these represent paramaters that are reuired or optional, can be added to/modified
+		location_id: cityID, 
+		language: 'en_US',
+		currency: 'USD',
+		offset: '0'
+	})
+    };
+    fetch(url, options)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            //add where the data needs to be displayed here
+        })
+
+}
+
+//pulls data about target city. runs getAttractions using ID from target city data
+function getCityID(city) {
+    var cityID;
+    const url = 'https://tourist-attraction.p.rapidapi.com/typeahead';
+    const options = {
+	method: 'POST',
+	headers: {
+		'content-type': 'application/x-www-form-urlencoded',
+		'X-RapidAPI-Key': '45534c69cfmsh2323382acbfdd65p128493jsnc2a053bfb606',
+		'X-RapidAPI-Host': 'tourist-attraction.p.rapidapi.com'
+	},
+	body: new URLSearchParams({
+        //both of these options are required
+		q: city,
+		language: 'en_US'
+	})
+    };
+
+    fetch(url, options)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            cityID = data.results.data[0].result_object.location_id;
+            getAttractions(cityID);
+        })
+        
+}
+
+//the function will create a datepicker calender for the below html
+// <p>Date: <input type="text" id="datepicker"></p>
+// $( function() {
+//     $( "#datepicker" ).datepicker();
+//   } );
