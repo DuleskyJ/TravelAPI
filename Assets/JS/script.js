@@ -41,6 +41,7 @@ function getCoordinates(cityName) {
 
 }
 
+//lists 20 tourist attractions in or around target city--Requires ID code from getcityID
 function getAttractions (cityID) {
     const url = 'https://tourist-attraction.p.rapidapi.com/search';
     const options = {
@@ -51,7 +52,8 @@ function getAttractions (cityID) {
 		'X-RapidAPI-Host': 'tourist-attraction.p.rapidapi.com'
 	},
 	body: new URLSearchParams({
-		location_id: cityID,
+        //these represent paramaters that are reuired or optional, can be added to/modified
+		location_id: cityID, 
 		language: 'en_US',
 		currency: 'USD',
 		offset: '0'
@@ -59,10 +61,14 @@ function getAttractions (cityID) {
     };
     fetch(url, options)
         .then(response => response.json())
-        .then(data => {console.log(data)})
+        .then(data => {
+            console.log(data)
+            //add where the data needs to be displayed here
+        })
 
 }
 
+//pulls data about target city. runs getAttractions using ID from target city data
 function getCityID(city) {
     var cityID;
     const url = 'https://tourist-attraction.p.rapidapi.com/typeahead';
@@ -74,6 +80,7 @@ function getCityID(city) {
 		'X-RapidAPI-Host': 'tourist-attraction.p.rapidapi.com'
 	},
 	body: new URLSearchParams({
+        //both of these options are required
 		q: city,
 		language: 'en_US'
 	})
@@ -88,3 +95,9 @@ function getCityID(city) {
         })
         
 }
+
+//the function will create a datepicker calender for the below html
+// <p>Date: <input type="text" id="datepicker"></p>
+// $( function() {
+//     $( "#datepicker" ).datepicker();
+//   } );
