@@ -59,20 +59,22 @@ span {
 }
 #teleportSearch {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     padding: 12px;
-   
+    align-items: normal;
 }
 #submitButton {
     justify-content: center;
     align-items: center;
     width: 125px;
     height: 25px;
+    margin-left: 22px;
     border-radius: 10px;
     background-color: rgba(231, 18, 189, 0.797);
     color: rgb(5, 61, 244);
     font-weight: normal;
     font-size: small;
+    transition: .2s;
 }
 #submitButton:hover {
     justify-content: center;
@@ -159,6 +161,7 @@ i:hover {
     color: rgb(5, 61, 244);
     font-weight: bold;
     font-size: large;
+    transition: .3s;
     
 }
 
