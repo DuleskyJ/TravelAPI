@@ -13,6 +13,7 @@ body {
 
 header {
     display: flex;
+    height: 100px;
 }
 
 div {
@@ -57,6 +58,38 @@ span {
     height: 35px;
     margin: 0 0 4% 0;
 }
+#teleportSearch {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    align-items: normal;
+}
+#submitButton {
+    justify-content: center;
+    align-items: center;
+    width: 125px;
+    height: 25px;
+    margin-left: 22px;
+    border-radius: 10px;
+    background-color: rgba(231, 18, 189, 0.797);
+    color: rgb(5, 61, 244);
+    font-weight: normal;
+    font-size: small;
+    transition: .2s;
+}
+#submitButton:hover {
+    justify-content: center;
+    align-items: center;
+    width: 125px;
+    height: 25px;
+    border-radius: 10px;
+    background-color: rgba(26, 205, 245, 0.825);
+    border: 1px solid rgba(231, 18, 189, 0.568);
+    color: rgba(231, 18, 189, 0.797);
+    font-weight: normal;
+    font-size: small;
+}
+
 input::placeholder {
     padding: 10px;
     font-size: 16px;
@@ -416,6 +449,7 @@ i:hover {
     color: rgb(5, 61, 244);
     font-weight: bold;
     font-size: large;
+    transition: .3s;
     
 }
 

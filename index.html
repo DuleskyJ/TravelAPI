@@ -4,14 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bulma or other css framework links here above style.css link -->
-    <!-- The script line below is from: https://www.makeuseof.com/search-bar-html-css-javascript/ -->
-    <script src="https://kit.fontawesome.com/d69fb28507.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;300;500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <!-- Team 4: Coding Bros CSS-->
     <link rel="stylesheet" type="text/css" href="./Assets/CSS/style.css">
     <title>Welcome to the coding bros travel app!</title>
 </head>
@@ -21,11 +18,13 @@
     <header>
         <h1><span>C</span>oding <span>B</span>ros - "Travel like a Pro!"</h1>
         <!-- The idea below is taken from:https://www.makeuseof.com/search-bar-html-css-javascript/ -->
-        <div>
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="submitBox" placeholder="Teleport Where?">
+        <div id="teleportSearch">
+            <div>
+                <i class="fa-solid fa-magnifying-glass"></i>    
+                <input type="text" id="submitBox" placeholder="Teleport Where?">
+            </div>
+            <button type="submit" id="submitButton">Teleport&nbsp<em>THERE!</em></button>
         </div>
-        <button type="submit" id="submitButton">Teleport <em>THERE!</em></button>
     </header>
     
     <div id="map">
@@ -35,13 +34,13 @@
 
     <section id="teleportBox">
         <section id="Teleport">
-            <button type="submit" id="teleportButton">Teleport <em>WHERE?!</em></button>
+            <button type="submit" id="teleportButton">Teleport&nbsp<em>WHERE?</em></button>
         </section>
     </section>
     <div class="modal">
         <div class="modal-background"></div>
-        <div id='modalContent' class="modal-content has-background-white py-5 px-5">
-            <div id='inputs'>
+        <div id="modalContent" class="modal-content has-background-white py-5 px-5">
+            <div id="inputs">
                 <h4 class="title mb-6">Where are we going:
                 <input type="text" id="usercity" placeholder="Enter A City Here"></h4>
             
