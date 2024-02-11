@@ -1,14 +1,29 @@
-var submitButton = $("#submitButton");
+var teleportButton = $("#teleportButton");
 var submitBox = $("#submitBox");
+var goButton = $('#go');
+var datepicker = $('#datepicker');
+var userCity = $('#usercity');
 
-submitButton.click(function (event) {
+//displays modal and removes teleport button
+teleportButton.click(function (event) {
     event.preventDefault;
-    var cityName = submitBox.val();
-    console.log(cityName);
-    getCoordinates(cityName);
-    getCityID(cityName);
+    $('.modal').attr('class', 'modal is-active');
+    $('#teleportBox').attr('style', 'display: none');
 }); 
 
+//submits input and removes modal
+goButton.click(function(event) {
+    event.preventDefault();
+    var cityName = userCity.val();
+    if(cityName){
+        $('.modal').attr('class', 'modal');
+        $('#map').attr('style', 'display: block');
+        getCityID(cityName)
+        getCoordinates(cityName)
+    } else {
+        alert("We know you're excited but you need to enter a city first!\nOr press 'Take Me Somewhere!' for a random adventure!");
+    }
+})
 
 function initMap(x, y) {
     // The location of your map center
@@ -32,7 +47,6 @@ function getCoordinates(cityName) {
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             var location = data.results[0].geometry.location;
             // Use the latitude and longitude to display a map centered on the city
             initMap(location.lat, location.lng);
@@ -89,15 +103,15 @@ function getCityID(city) {
     fetch(url, options)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             cityID = data.results.data[0].result_object.location_id;
             getAttractions(cityID);
         })
         
 }
 
-//the function will create a datepicker calender for the below html
-// <p>Date: <input type="text" id="datepicker"></p>
-// $( function() {
-//     $( "#datepicker" ).datepicker();
-//   } );
+
+$( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+
+  
