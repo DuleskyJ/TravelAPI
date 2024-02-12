@@ -126,6 +126,48 @@ i:hover {
     outline-color: #aa00ff;
 }
 
+/* MODAL */
+#modalContent{
+    border-radius: 18px;
+    background-image: repeating-linear-gradient(45deg, hsla(64,83%,54%,0.05) 0px, hsla(64,83%,54%,0.05) 1px,transparent 1px, transparent 11px,hsla(64,83%,54%,0.05) 11px, hsla(64,83%,54%,0.05) 12px,transparent 12px, transparent 32px),repeating-linear-gradient(90deg, hsla(64,83%,54%,0.05) 0px, hsla(64,83%,54%,0.05) 1px,transparent 1px, transparent 11px,hsla(64,83%,54%,0.05) 11px, hsla(64,83%,54%,0.05) 12px,transparent 12px, transparent 32px),repeating-linear-gradient(0deg, hsla(64,83%,54%,0.05) 0px, hsla(64,83%,54%,0.05) 1px,transparent 1px, transparent 11px,hsla(64,83%,54%,0.05) 11px, hsla(64,83%,54%,0.05) 12px,transparent 12px, transparent 32px),repeating-linear-gradient(135deg, hsla(64,83%,54%,0.05) 0px, hsla(64,83%,54%,0.05) 1px,transparent 1px, transparent 11px,hsla(64,83%,54%,0.05) 11px, hsla(64,83%,54%,0.05) 12px,transparent 12px, transparent 32px),linear-gradient(90deg, rgb(41, 27, 158),rgb(249, 77, 212));
+}
+
+#modalButtons {
+    border-radius: 25px; 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Orbitron', sans-serif; 
+    background-color: #663dff;
+    background-image: linear-gradient(319deg, #663dff 0%, #aa00ff 37%, #cc4499 100%);
+}
+
+
+#ui-datepicker-div {
+    background-color: antiquewhite;
+}
+.ui-datepicker-prev {
+    margin-right: 60px;
+    border: 1px solid gray;
+    border-bottom: 0;
+    padding: 3px;
+}
+.ui-datepicker-next {
+    border: solid 1px gray;
+    border-bottom: 0;
+    padding: 3px;
+}
+.ui-datepicker-title{
+    border: solid 1px gray;
+    padding: 3px;
+}
+thead{
+    border-bottom: 1px solid gray;
+}
+td{
+    border: 1px solid gray;
+}
 #inputs {
     color: #fff;
     text-shadow:
@@ -153,7 +195,7 @@ i:hover {
  --primary-hue:0; 
  --primary-lightness:50;
  --color: hsl(0,0%,100%);
- --font-size: 26px;
+ --font-size: 20px;
  --shadow-primary-hue: 180;
  --label-size: 9px; 
  --shadow-secondary: hs1(var(--shadow-secondary-hue),90%,60%);
@@ -399,29 +441,6 @@ i:hover {
     --primary-hue: 260;
 }
 
-
-/* MODAL */
-#modalContent{
-    border-radius: 18px;
-    background-image: repeating-linear-gradient(45deg, hsla(64,83%,54%,0.05) 0px, hsla(64,83%,54%,0.05) 1px,transparent 1px, transparent 11px,hsla(64,83%,54%,0.05) 11px, hsla(64,83%,54%,0.05) 12px,transparent 12px, transparent 32px),repeating-linear-gradient(90deg, hsla(64,83%,54%,0.05) 0px, hsla(64,83%,54%,0.05) 1px,transparent 1px, transparent 11px,hsla(64,83%,54%,0.05) 11px, hsla(64,83%,54%,0.05) 12px,transparent 12px, transparent 32px),repeating-linear-gradient(0deg, hsla(64,83%,54%,0.05) 0px, hsla(64,83%,54%,0.05) 1px,transparent 1px, transparent 11px,hsla(64,83%,54%,0.05) 11px, hsla(64,83%,54%,0.05) 12px,transparent 12px, transparent 32px),repeating-linear-gradient(135deg, hsla(64,83%,54%,0.05) 0px, hsla(64,83%,54%,0.05) 1px,transparent 1px, transparent 11px,hsla(64,83%,54%,0.05) 11px, hsla(64,83%,54%,0.05) 12px,transparent 12px, transparent 32px),linear-gradient(90deg, rgb(41, 27, 158),rgb(249, 77, 212));
-}
-
-#modalButtons {
-    border-radius: 25px; 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    font-family: 'Orbitron', sans-serif; 
-    background-color: #663dff;
-    background-image: linear-gradient(319deg, #663dff 0%, #aa00ff 37%, #cc4499 100%);
-}
-
-
-#ui-datepicker-div {
-    background-color: antiquewhite;
-}
-
 /* MAIN BUTTON */
 /* teleportBox makes the landing page button "Teleport" stand out */
 #teleportBox {
@@ -469,8 +488,8 @@ i:hover {
 
 /* MAP */
 #map{
-    height: 400px;
-    width: 400px;
+    width: 40%;
+    height: 500px;
     display: none;
 }
 
