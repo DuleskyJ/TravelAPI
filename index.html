@@ -18,6 +18,7 @@
 
     <header>
         <h1><span>C</span>oding <span>B</span>ros - "Travel like a Pro!"</h1>
+        
         <!-- The idea below is taken from:https://www.makeuseof.com/search-bar-html-css-javascript/ -->
         <div id="teleportSearch">
             <div>
@@ -27,9 +28,18 @@
             <button type="submit" id="submitButton">Teleport&nbsp<em>THERE!</em></button>
         </div>
     </header>
+
     <!-- MAP -->
-    <div id="map">
-        
+    <div id="attractionDisplay">
+        <div id="wrapper">
+            <div id="map">
+                
+            </div>
+            
+            <!-- ATTRACTIONS -->
+            <div id="attractions">
+            </div>
+        </div>
     </div>
     <!-- MAIN BUTTON -->
     <section id="teleportBox">
@@ -37,10 +47,12 @@
             <button type="submit" id="teleportButton">Teleport&nbsp<em>WHERE?</em></button>
         </section>
     </section>
+
     <!-- MODAL -->
     <div class="modal">
         <div class="modal-background"></div>
         <div id="modalContent" class="modal-content has-background-white py-5 px-5">
+            <div class="loading"></div>
             <div id="inputs">
                 <h4 class="title mb-6">Where are we going:
                 <input type="text" id="usercity" placeholder="Enter A City Here"></h4>
@@ -65,6 +77,7 @@
         </div>
     </div>
     <!--END OF MODAL-->
+
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD84xL-EW-Inz01Pxoe3XleBCMT_ZZXuTw"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>

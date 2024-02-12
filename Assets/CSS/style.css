@@ -63,6 +63,7 @@ span {
     flex-direction: column;
     padding: 12px;
     align-items: normal;
+    display: none;
 }
 #submitButton {
     justify-content: center;
@@ -195,7 +196,7 @@ td{
  --primary-hue:0; 
  --primary-lightness:50;
  --color: hsl(0,0%,100%);
- --font-size: 20px;
+ --font-size: 3vh;
  --shadow-primary-hue: 180;
  --label-size: 9px; 
  --shadow-secondary: hs1(var(--shadow-secondary-hue),90%,60%);
@@ -488,28 +489,103 @@ td{
 
 /* MAP */
 #map{
-    width: 40%;
-    height: 500px;
-    display: none;
+    min-height: 500px;
+    min-width: 500px;
+    max-width: 50%;
+    margin: 10px;
 }
 
-/* was attempting to create a responsive layout, but im using the media selector worg apparently  */
-/* @media (min-width: 425px) {
-    header {
+
+
+#attractionDisplay {
+    display: none;
+}
+#wrapper{
+    display: flex;
+    flex-direction: row;
+}
+#attractions{
+    background-color: #0000cd89;
+    color: #fff700;
+    margin: 10px;
+    height: 500px;
+    overflow-y: scroll;
+}
+#attractions div {
+    border-bottom: 2px solid #d31ed3;
+}
+#attractions div img {
+    float: left;
+}
+.loading {
+    width: 50px;
+    height: 50px;
+    border: 5px solid transparent;
+    border-top-color: #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 150px auto;
+    display: none;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+ 
+  @media screen and (max-width: 580px){
+    #modalButtons{
         flex-direction: column;
-        align-items: center
     }
+  }
+  @media screen and (max-width: 500px){
+    .swagButtons{
+        font-size: 14px;
+    }
+    #modalButtons{
+        flex-direction: column;
+    }
+  }
 
-    i {
-        display: none;
-    }
 
-    section {
-        justify-content: center;
-    }
-    #submitBox {
-        width: 250px;
-        height: 40px;
 
-    }
-} */
+  /* <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Overflow Scroll Bar Example</title>
+<style>
+  .container {
+    width: 300px;
+    height: 200px;
+    border: 1px solid #ccc;
+    overflow: auto; This will enable both horizontal and vertical scrollbars when content overflows
+  }
+  To control scrollbars separately, you can use overflow-x and overflow-y
+  .container {
+    overflow-x: auto; // horizontal scrollbar
+    overflow-y: auto; // vertical scrollbar
+  }
+
+  Just for styling purposes
+  .content {
+    width: 600px; Greater than the container width to demonstrate overflow
+    height: 400px; Greater than the container height to demonstrate overflow
+    background-color: #f0f0f0;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <!-- Your content here -->
+      <!-- This content is larger than the container, so it will cause overflow and show scroll bars -->
+    </div>
+  </div>
+</body>
+</html> */

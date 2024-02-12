@@ -1,8 +1,10 @@
 var teleportButton = $("#teleportButton");
 var submitBox = $("#submitBox");
+var submitButton = $('#submitButton');
 var goButton = $('#go');
 var datepicker = $('#datepicker');
 var userCity = $('#usercity');
+var attractions = $('#attractions');
 
 //displays modal and removes teleport button
 teleportButton.click(function (event) {
@@ -11,13 +13,24 @@ teleportButton.click(function (event) {
     $('#teleportBox').attr('style', 'display: none');
 }); 
 
+submitButton.click(function (event) {
+    event.preventDefault();
+    attractions.html('')
+    var cityName = submitBox.val();
+    if (cityName) {
+        getCityID(cityName)
+        getCoordinates(cityName)
+    } else {
+        alert("We know you're excited but you need to enter a city first!\nOr press 'Take Me Somewhere!' for a random adventure!");
+    }
+})
+
 //submits input and removes modal
 goButton.click(function(event) {
     event.preventDefault();
     var cityName = userCity.val();
     if(cityName){
-        $('.modal').attr('class', 'modal');
-        $('#map').attr('style', 'display: block');
+        makeLoadAnimation()
         getCityID(cityName)
         getCoordinates(cityName)
     } else {
@@ -77,7 +90,26 @@ function getAttractions (cityID) {
         .then(response => response.json())
         .then(data => {
             console.log(data)
+            $('.modal').attr('class', 'modal');
+            $('#attractionDisplay').attr('style', 'display: block');
+            $('#teleportSearch').attr('style', 'display: block');
             //add where the data needs to be displayed here
+            var responseData = data.results.data;
+            var counter = 0;
+                for (key in responseData){
+                var newDiv = $('<div>');
+                var newh3 = $('<h3>');
+                var addressP = $('<p>');
+                var ratingP = $('<p>');
+                var newImg = $('<img>');
+                newh3.text('"'+data.results.data[counter].name+'"');
+                addressP.text('Address: '+data.results.data[counter].address);
+                ratingP.text('Rating: '+data.results.data[counter].raw_ranking.substr(0, 3)+'/5');
+                newImg.attr('src', data.results.data[counter].photo.images.thumbnail.url);
+                newDiv.append(newImg, newh3, addressP, ratingP);
+                attractions.append(newDiv);
+                counter++
+            }
         })
 
 }
@@ -109,7 +141,13 @@ function getCityID(city) {
         
 }
 
-
+function makeLoadAnimation () {
+    $('#modalContent').html('');
+    var loading = $('<div>');
+    $('#modalContent').append(loading);
+    loading.attr('class', 'loading');
+    loading.attr('style', 'display: block');
+}
 $( function() {
     $( "#datepicker" ).datepicker();
   } );
