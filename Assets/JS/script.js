@@ -13,15 +13,19 @@ teleportButton.click(function (event) {
     $('#teleportBox').attr('style', 'display: none');
 }); 
 
+//changes response screen based on new user input
 submitButton.click(function (event) {
     event.preventDefault();
     attractions.html('')
+    $('#attractionDisplay').attr('style', 'display: none');
+    $('#loadingDiv').attr('class','loading');
+    $('#loadingDiv').attr('style', 'display: block');
     var cityName = submitBox.val();
     if (cityName) {
         getCityID(cityName)
         getCoordinates(cityName)
     } else {
-        alert("We know you're excited but you need to enter a city first!\nOr press 'Take Me Somewhere!' for a random adventure!");
+        alert("We know you're excited but you need to enter a city first!");
     }
 })
 
@@ -90,6 +94,7 @@ function getAttractions (cityID) {
         .then(response => response.json())
         .then(data => {
             console.log(data)
+            $('#loadingDiv').attr('class','notloading');
             $('.modal').attr('class', 'modal');
             $('#attractionDisplay').attr('style', 'display: block');
             $('#teleportSearch').attr('style', 'display: block');
@@ -105,7 +110,7 @@ function getAttractions (cityID) {
                 newh3.text('"'+data.results.data[counter].name+'"');
                 addressP.text('Address: '+data.results.data[counter].address);
                 ratingP.text('Rating: '+data.results.data[counter].raw_ranking.substr(0, 3)+'/5');
-                newImg.attr('src', data.results.data[counter].photo.images.thumbnail.url);
+                newImg.attr('src', data.results.data[counter].photo.images.small.url);
                 newDiv.append(newImg, newh3, addressP, ratingP);
                 attractions.append(newDiv);
                 counter++

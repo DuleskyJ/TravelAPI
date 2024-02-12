@@ -29,25 +29,45 @@
         </div>
     </header>
 
-    <!-- MAP -->
-    <div id="attractionDisplay">
-        <div id="wrapper">
-            <div id="map">
-                
-            </div>
-            
-            <!-- ATTRACTIONS -->
-            <div id="attractions">
-            </div>
-        </div>
-    </div>
     <!-- MAIN BUTTON -->
     <section id="teleportBox">
         <section id="Teleport">
             <button type="submit" id="teleportButton">Teleport&nbsp<em>WHERE?</em></button>
         </section>
     </section>
-
+    <div id="loadingDiv"></div>
+    <!-- MAP AND ATTRACTIONS-->
+    <div id="attractionDisplay">
+        <div id="bigWrapper">
+            <div id="wrapper">
+                <div id="map">
+                    
+                </div>
+                
+                <!-- ATTRACTIONS -->
+                <div id="attractions">
+                </div>
+            </div>
+            <div id="itinerary">
+                <h2 class="datepicker"></h2>
+                <button><i class="fas fa-save" aria-hidden="true"></i></button>
+                <div id="00" class="timeBlock">
+                    <p>1AM</p>
+                    <textarea placeholder="Write what you want to do here"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ITINERARY -->
+    <!-- <div id="11" class="row time-block">
+        <div class="col-2 col-md-1 hour text-center py-3">11AM</div>
+        <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
+        <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+          <i class="fas fa-save" aria-hidden="true"></i>
+        </button>
+      </div> -->
+    
+    
     <!-- MODAL -->
     <div class="modal">
         <div class="modal-background"></div>
@@ -59,7 +79,7 @@
             
             
                 <h4 class="title mb-6">When are we going there:
-                <input type="text" id="datepicker" placeholder="Enter A City Here"></h4>
+                <input type="text" id="datepicker" placeholder="Enter A Date Here"></h4>
             </div>
             <div id="modalButtons">
                 <button class="swagButtons" id="go">
