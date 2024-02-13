@@ -9,3 +9,4 @@ It uses HTML, CSS, Javascript, jQuery, and multiple Third Party APIs
 [Link to deployed application](https://duleskyj.github.io/TravelAPI/)
 
 ![screenshot of the Coding Bros Travel App](./Assets/landingPageScreenshot.png)
+![second screenshot of the Coding Bros Travel App](./Assets/secondScreenShot.png)
