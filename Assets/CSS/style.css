@@ -499,12 +499,14 @@ td{
     min-width: 500px;
     max-width: 50%;
     margin: 10px;
+    border-radius: 10px;
 }
 
 
 
 #attractionDisplay {
     display: none;
+    border-radius: 10px;
 }
 #wrapper{
     display: flex;
@@ -516,6 +518,7 @@ td{
     margin: 10px;
     height: 500px;
     overflow-y: scroll;
+    border-radius: 10px;
 }
 #attractions div {
     border-bottom: 2px solid #d31ed3;
@@ -542,6 +545,7 @@ td{
     justify-content: center;
     align-items: center;
     width: 100%;
+    border-radius: 10px;
 }
 .timeBlock {
     display: flex;
