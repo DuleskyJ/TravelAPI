@@ -2,16 +2,39 @@ var teleportButton = $("#teleportButton");
 var submitBox = $("#submitBox");
 var submitButton = $('#submitButton');
 var goButton = $('#go');
+var RandomButton = $('#Random');
 var datepicker = $('#datepicker');
 var userCity = $('#usercity');
 var attractions = $('#attractions');
+var itineraryWrapper = $('#itineraryWrapper');
+var itineraryButton = $('#itineraryButton');
+var cityList = ['Tokyo', 'Rome', 'Paris', 'London', 'New York', 'Istanbul', 'Barcelona', 
+'Amsterdam', 'Dubai', 'Singapore', 'Bangkok', 'Berlin', 'Cape Town', 'Seoul', 'Hong Kong', 
+'Marrakech', 'Mumbai', 'Prague', 'Madrid', 'Vancouver', 'Sydney', 'Taipei', 'Copenhagen', 'Edinburgh'];
 
 //displays modal and removes teleport button
 teleportButton.click(function (event) {
-    event.preventDefault;
+    event.preventDefault();
     $('.modal').attr('class', 'modal is-active');
     $('#teleportBox').attr('style', 'display: none');
 }); 
+
+
+itineraryButton.click(function (event) {
+    event.preventDefault();
+    var itinerarySchedule = {};
+    var counter = 0;
+    var saveDate = $('#saveDate').text();
+    $('.timeBlock').each(function(){
+        if (counter<10) {
+            itinerarySchedule[counter] = $('#0'+counter).val();
+        } else {
+            itinerarySchedule[counter] = $('#'+counter).val();
+        }
+        counter++;
+    })
+    localStorage.setItem(saveDate, itinerarySchedule);
+})
 
 //changes response screen based on new user input
 submitButton.click(function (event) {
@@ -33,6 +56,7 @@ submitButton.click(function (event) {
 goButton.click(function(event) {
     event.preventDefault();
     var cityName = userCity.val();
+    $('#itinerary').children('h2').text(datepicker.val());
     if(cityName){
         makeLoadAnimation()
         getCityID(cityName)
@@ -41,6 +65,20 @@ goButton.click(function(event) {
         alert("We know you're excited but you need to enter a city first!\nOr press 'Take Me Somewhere!' for a random adventure!");
     }
 })
+
+setInterval(function(){
+    var saveDate = $('#saveDate').text();
+    var itinerarySchedule = localStorage.getItem(saveDate);
+    var counter = 0;
+    $('.timeBlock').each(function(){
+        if (counter<10) {
+            $('#0'+counter).val(itinerarySchedule[counter]);
+        } else {
+            $('#'+counter).val(itinerarySchedule[counter]);
+        }
+        counter++
+    })
+}, 1000)
 
 function initMap(x, y) {
     // The location of your map center
@@ -99,20 +137,44 @@ function getAttractions (cityID) {
             $('#attractionDisplay').attr('style', 'display: block');
             $('#teleportSearch').attr('style', 'display: block');
             //add where the data needs to be displayed here
+            for (var i = 0; i < 23; i++){
+                var timeDiv = $('<div>');
+                var timeP = $('<p>');
+                var timeText = $('<textarea>');
+                if (i==0) {
+                    timeP.text('12AM')
+                } else if (i > 0 && i < 12) {
+                    timeP.text(i+'AM')
+                } else if (i==12){
+                    timeP.text('12PM')
+                }else if (i > 12) {
+                    timeP.text((i-12)+'PM')
+                }
+                timeText.attr('placeholder', 'Enter What You Want To Do Here!');
+                timeDiv.attr('class', 'timeBlock');
+                if (i<10) {
+                    timeText.attr('id', '0'+i);
+                } else {
+                    timeText.attr('id', i);
+                }
+                timeDiv.append(timeText, timeP);
+                itineraryWrapper.append(timeDiv);
+
+            }
             var responseData = data.results.data;
             var counter = 0;
                 for (key in responseData){
-                var newDiv = $('<div>');
-                var newh3 = $('<h3>');
+                var div = $('<div>');
+                var h3 = $('<h3>');
                 var addressP = $('<p>');
                 var ratingP = $('<p>');
-                var newImg = $('<img>');
-                newh3.text('"'+data.results.data[counter].name+'"');
+                var Img = $('<img>');
+                h3.text('"'+data.results.data[counter].name+'"');
                 addressP.text('Address: '+data.results.data[counter].address);
                 ratingP.text('Rating: '+data.results.data[counter].raw_ranking.substr(0, 3)+'/5');
-                newImg.attr('src', data.results.data[counter].photo.images.small.url);
-                newDiv.append(newImg, newh3, addressP, ratingP);
-                attractions.append(newDiv);
+                Img.attr('src', data.results.data[counter].photo.images.small.url);
+                div.append(Img, h3, addressP, ratingP);
+                attractions.append(div);
                 counter++
             }
         })

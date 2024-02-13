@@ -3,12 +3,14 @@
 * {
     font-family: work sans;
 }   
-
+html{
+    height: 100%;
+}
 body {
     background-image: url('../CyberPunkCityImage.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
+    height: 150vh;
 }
 
 header {
@@ -37,6 +39,10 @@ h1 {
     font-size: 45px;
     font-weight: 300;
     padding-right: 10px;
+}
+
+h2 {
+    font-size: 60px;
 }
 
 span {
@@ -196,7 +202,7 @@ td{
  --primary-hue:0; 
  --primary-lightness:50;
  --color: hsl(0,0%,100%);
- --font-size: 3vh;
+ --font-size: 2vh;
  --shadow-primary-hue: 180;
  --label-size: 9px; 
  --shadow-secondary: hs1(var(--shadow-secondary-hue),90%,60%);
@@ -530,11 +536,12 @@ td{
   }
 
   /* ITINERARY */
-#itinerary {
+#itinerary, #itineraryWrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 .timeBlock {
     display: flex;
@@ -544,7 +551,7 @@ td{
 }
 
 .timeBlock textarea{
-    width: 80%;
+    width: 80vw;
     height: 80px;
 }
 .timeBlock textarea, .timeBlock textarea::placeholder{
@@ -554,14 +561,23 @@ td{
     display: flex;
     justify-content: center;
     font-size: 50px;
-    width: 20%;
+    width: 20vw;
+    height: 80px;
+    border-bottom: 2px solid #d31ed3;
 }
 #itinerary button{
     cursor: pointer;
     margin: 0;
     padding: 0 10px 0 0 ;
 }
-
+#intinerary h2{
+    min-height: 10px;
+    min-width: 10px;
+}
+#itineraryWrapper{
+    height: 400px;
+    overflow-y: auto;
+}
 
 
 
@@ -589,40 +605,3 @@ td{
   }
 
 
-
-  /* <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Overflow Scroll Bar Example</title>
-<style>
-  .container {
-    width: 300px;
-    height: 200px;
-    border: 1px solid #ccc;
-    overflow: auto; This will enable both horizontal and vertical scrollbars when content overflows
-  }
-  To control scrollbars separately, you can use overflow-x and overflow-y
-  .container {
-    overflow-x: auto; // horizontal scrollbar
-    overflow-y: auto; // vertical scrollbar
-  }
-
-  Just for styling purposes
-  .content {
-    width: 600px; Greater than the container width to demonstrate overflow
-    height: 400px; Greater than the container height to demonstrate overflow
-    background-color: #f0f0f0;
-  }
-</style>
-</head>
-<body>
-  <div class="container">
-    <div class="content">
-      <!-- Your content here -->
-      <!-- This content is larger than the container, so it will cause overflow and show scroll bars -->
-    </div>
-  </div>
-</body>
-</html> */
