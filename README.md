@@ -10,3 +10,4 @@ It uses HTML, CSS, Javascript, jQuery, and multiple Third Party APIs
 
 ![screenshot of the Coding Bros Travel App](./Assets/landingPageScreenshot.png)
 ![second screenshot of the Coding Bros Travel App](./Assets/secondScreenShot.png)
+![third screenshot of the Coding Bros Travel App](./Assets/thirdScreenShot.jpg)
