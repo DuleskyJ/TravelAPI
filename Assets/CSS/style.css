@@ -612,5 +612,11 @@ td{
         flex-direction: column;
     }
   }
+  
 
+  @media only screen and (max-width: 1024px){
+    #wrapper{
+        flex-direction: column;
+    }
+  }
 
