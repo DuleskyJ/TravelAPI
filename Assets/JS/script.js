@@ -8,6 +8,7 @@ var userCity = $('#usercity');
 var attractions = $('#attractions');
 var itineraryWrapper = $('#itineraryWrapper');
 var itineraryButton = $('#itineraryButton');
+var saveDate = $('#saveDate');
 var cityList = ['Tokyo', 'Rome', 'Paris', 'London', 'New York', 'Istanbul', 'Barcelona', 
 'Amsterdam', 'Dubai', 'Singapore', 'Bangkok', 'Berlin', 'Cape Town', 'Seoul', 'Hong Kong', 
 'Marrakech', 'Mumbai', 'Prague', 'Madrid', 'Vancouver', 'Sydney', 'Taipei', 'Copenhagen', 'Edinburgh'];
@@ -24,7 +25,7 @@ itineraryButton.click(function (event) {
     event.preventDefault();
     var itinerarySchedule = {};
     var counter = 0;
-    var saveDate = $('#saveDate').text();
+    var saveDatetemp = saveDate.text();
     $('.timeBlock').each(function(){
         if (counter<10) {
             itinerarySchedule[counter] = $('#0'+counter).val();
@@ -33,7 +34,9 @@ itineraryButton.click(function (event) {
         }
         counter++;
     })
-    localStorage.setItem(saveDate, itinerarySchedule);
+    console.log(itinerarySchedule);
+    var test = JSON.stringify(itinerarySchedule);
+    localStorage.setItem(saveDatetemp, test);
 })
 
 //changes response screen based on new user input
@@ -56,7 +59,7 @@ submitButton.click(function (event) {
 goButton.click(function(event) {
     event.preventDefault();
     var cityName = userCity.val();
-    $('#itinerary').children('h2').text(datepicker.val());
+    saveDate.text(datepicker.val());
     if(cityName){
         makeLoadAnimation()
         getCityID(cityName)
@@ -66,19 +69,46 @@ goButton.click(function(event) {
     }
 })
 
-setInterval(function(){
-    var saveDate = $('#saveDate').text();
-    var itinerarySchedule = localStorage.getItem(saveDate);
-    var counter = 0;
-    $('.timeBlock').each(function(){
-        if (counter<10) {
-            $('#0'+counter).val(itinerarySchedule[counter]);
-        } else {
-            $('#'+counter).val(itinerarySchedule[counter]);
-        }
-        counter++
-    })
-}, 1000)
+$('#loadReset').click(function(event){
+    event.preventDefault();
+    var saveDatetemp;
+    var changeDate = $('#changeDate').val();
+    if (changeDate){
+        saveDatetemp = changeDate;
+        saveDate.text(changeDate);
+        console.log(saveDatetemp);
+    } else{
+        saveDatetemp = saveDate.text();
+        console.log(saveDatetemp);
+    } 
+    console.log(saveDatetemp);
+    var flushObject = localStorage.getItem(saveDatetemp);
+    console.log(flushObject);
+    if (flushObject!='[object Object]' && flushObject) {
+        var itinerarySchedule = JSON.parse(flushObject);
+        var counter = 0;
+        $('.timeBlock').each(function(){
+            if (counter<10) {
+                $('#0'+counter).val(itinerarySchedule[counter]);
+            } else {
+                $('#'+counter).val(itinerarySchedule[counter]);
+            }
+            counter++
+        })
+    } else if (flushObject=='[object Object]' || !flushObject) {
+        console.log("test");
+        var counter = 0;
+        $('.timeBlock').each(function(){
+            if (counter<10) {
+                $('#0'+counter).val('');
+            } else {
+                $('#'+counter).val('');
+            }
+            counter++
+        })
+    }
+    $('#changeDate').val('');
+})
 
 function initMap(x, y) {
     // The location of your map center
@@ -217,6 +247,9 @@ function makeLoadAnimation () {
 }
 $( function() {
     $( "#datepicker" ).datepicker();
+  } );
+$( function() {
+    $('#changeDate').datepicker();
   } );
 
   
