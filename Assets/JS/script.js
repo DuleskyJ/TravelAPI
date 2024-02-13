@@ -76,14 +76,10 @@ $('#loadReset').click(function(event){
     if (changeDate){
         saveDatetemp = changeDate;
         saveDate.text(changeDate);
-        console.log(saveDatetemp);
     } else{
         saveDatetemp = saveDate.text();
-        console.log(saveDatetemp);
     } 
-    console.log(saveDatetemp);
     var flushObject = localStorage.getItem(saveDatetemp);
-    console.log(flushObject);
     if (flushObject!='[object Object]' && flushObject) {
         var itinerarySchedule = JSON.parse(flushObject);
         var counter = 0;
@@ -96,7 +92,6 @@ $('#loadReset').click(function(event){
             counter++
         })
     } else if (flushObject=='[object Object]' || !flushObject) {
-        console.log("test");
         var counter = 0;
         $('.timeBlock').each(function(){
             if (counter<10) {

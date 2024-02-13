@@ -566,8 +566,11 @@ td{
 .timeBlock textarea, .timeBlock textarea::placeholder{
     font-size: 40px;
 }
+.timeBlock textarea {
+    color: #fff700;
+}
 .timeBlock textarea::placeholder{
-    color: #fff700d5;
+    color: #fff700c9;
     
 }
 .timeBlock p {
