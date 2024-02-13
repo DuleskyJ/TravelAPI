@@ -167,6 +167,7 @@ function getAttractions (cityID) {
             $('#attractionDisplay').attr('style', 'display: block');
             $('#teleportSearch').attr('style', 'display: block');
             //add where the data needs to be displayed here
+            itineraryWrapper.html('');
             for (var i = 0; i < 23; i++){
                 var timeDiv = $('<div>');
                 var timeP = $('<p>');
