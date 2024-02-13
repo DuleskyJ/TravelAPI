@@ -564,6 +564,8 @@ td{
     width: 20vw;
     height: 80px;
     border-bottom: 2px solid #d31ed3;
+    background-color: #0000cd89;
+    color: #fff700;
 }
 #itinerary button{
     cursor: pointer;
@@ -577,6 +579,9 @@ td{
 #itineraryWrapper{
     height: 400px;
     overflow-y: auto;
+}
+#saveDate {
+    color: #fff700;
 }
 
 
