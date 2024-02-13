@@ -109,6 +109,10 @@ $('#loadReset').click(function(event){
     }
     $('#changeDate').val('');
 })
+$('#Random').click(function(event){
+    event.preventDefault();
+    randomizer();
+})
 
 function initMap(x, y) {
     // The location of your map center
@@ -252,4 +256,13 @@ $( function() {
     $('#changeDate').datepicker();
   } );
 
-  
+//   added randomizer function //
+function randomizer() {
+    var ranNum = Math.floor(Math.random() * cityList.length);
+    console.log(ranNum);
+    saveDate.text(dayjs().format("MM/DD/YYYY"));
+    makeLoadAnimation();
+    var cityName = cityList[ranNum];
+    getCityID(cityName);
+    getCoordinates(cityName);
+}
