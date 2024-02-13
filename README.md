@@ -6,6 +6,8 @@ This program is a travel planner that allows the user to enter a city and receiv
 
 It uses HTML, CSS, Javascript, jQuery, and multiple Third Party APIs
 
-[Link to deployed application](https:)
+[Link to deployed application](https://duleskyj.github.io/TravelAPI/)
 
 ![screenshot of the Coding Bros Travel App](./Assets/landingPageScreenshot.png)
+![second screenshot of the Coding Bros Travel App](./Assets/secondScreenShot.png)
+![third screenshot of the Coding Bros Travel App](./Assets/thirdScreenShot.jpg)
