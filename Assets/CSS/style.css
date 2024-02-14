@@ -16,6 +16,7 @@ body {
 header {
     display: flex;
     height: 100px;
+    justify-content: space-between;
 }
 
 div {
@@ -495,8 +496,10 @@ td{
 
 /* MAP */
 #map{
-    min-height: 500px;
-    min-width: 500px;
+    min-width: 100px;
+    min-height: 100px;
+    height: 500px;
+    width: 600px;
     max-width: 50%;
     margin: 10px;
     border-radius: 10px;
@@ -512,6 +515,7 @@ td{
     display: flex;
     flex-direction: row;
     width: 100%;
+    justify-content: space-between;
 }
 #attractions{
     background-color: #0000cd89;
@@ -520,6 +524,7 @@ td{
     height: 500px;
     overflow-y: scroll;
     border-radius: 10px;
+    width: 60%;
 }
 #attractions div {
     border-bottom: 2px solid #d31ed3;
@@ -625,24 +630,101 @@ td{
     }
   }
  
+  @media only screen and (max-width: 1023px){
+    h1{
+        font-size: 40px;
+    }
+    #attractions {
+        width: 100%;
+    }
+    #wrapper{
+        flex-direction: column;
+    }
+    div {
+        align-items: center;
+    }
+  }
+  @media screen and (max-width: 698px){
+    h1{
+        font-size: 30px;
+        margin-right: 55px;
+    }
+    header{
+        flex-direction: column;
+        height: 150px;
+        align-items: flex-end;
+    }
+  }
+  @media screen and (max-width: 652px){
+    #itineraryWrapper p{
+        font-size: 30px;
+    }
+    h1{
+        font-size: 25px;
+        margin-right: 55px;
+    }
+    header{
+        flex-direction: column;
+        height: 150px;
+        align-items: flex-end;
+    }
+  }
   @media screen and (max-width: 580px){
     #modalButtons{
         flex-direction: column;
     }
+    #itineraryWrapper p{
+        font-size: 30px;
+    }
+    h1{
+        font-size: 20px;
+        margin-right: 55px;
+    }
+    header{
+        flex-direction: column;
+        height: 150px;
+        align-items: flex-end;
+    }
   }
   @media screen and (max-width: 500px){
+    header{
+        flex-direction: column;
+        height: 150px;
+        align-items: flex-end;
+    }
+    h1{
+        font-size: 20px;
+    }
     .swagButtons{
         font-size: 14px;
     }
     #modalButtons{
         flex-direction: column;
     }
+    #wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    #attractions {
+        width: 100%;
+    }
+    #saveDate {
+        font-size: 50px;
+    }
+    #itineraryWrapper p{
+        font-size: 25px;
+    }
+    #itineraryWrapper textarea,#itineraryWrapper textarea::placeholder{
+        font-size: 30px;
+    }
+    #map {
+        min-width: 300px;
+        min-height: 300px;
+    }
+    #attractions div p{
+        font-size: 15px;
+    }
   }
   
 
-  @media only screen and (max-width: 1024px){
-    #wrapper{
-        flex-direction: column;
-    }
-  }
 
