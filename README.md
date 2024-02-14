@@ -1,5 +1,7 @@
 # Project 1 Team 4: Coding Bros Travel Planner
+
 ## Vini, Trevor, Jaden, & Michael - the Coding Bros
+
 Coding Bros - "Travel Like a Pro!"
 
 ## Description
@@ -15,13 +17,11 @@ In the production of this app we learned a lot about css animations and refined 
 
 ### Getting Started
 
-Upon loading Coding Bros' Travel App, the user will be greeted with our group name, slogan, and a teleport button. Pressing the button will open a modal asking for user inputs. To continue the user must fill out empty input fields and click 'lets go'. 
+Upon loading Coding Bros' Travel App, the user will be greeted with our group name, slogan, and a teleport button. Pressing the button will open a modal asking for user inputs. To continue the user must fill out empty input fields and click 'lets go'.
 
 ### Pop-up Modal
 
-If the user attempts to click 'lets go' without entering a city or date a pop-up will populate every time the button is pressed while the inputs remain empty. Should the user decide not to enter any information, they can press 'take me anywhere' to get a random location and today's itinerary. 
-
-### Map
+If the user attempts to click 'lets go' without entering a city or date a pop-up will populate every time the button is pressed while the inputs remain empty. Should the user decide not to enter any information, they can press 'take me anywhere' to get a random location and today's itinerary.
 
 ### Itinerary
 
