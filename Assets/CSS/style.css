@@ -16,6 +16,7 @@ body {
 header {
     display: flex;
     height: 100px;
+    justify-content: space-between;
 }
 
 div {
@@ -79,7 +80,7 @@ span {
     margin-left: 22px;
     border-radius: 10px;
     background-color: rgba(231, 18, 189, 0.797);
-    color: rgb(5, 61, 244);
+    color: #08a9ff;
     font-weight: normal;
     font-size: small;
     transition: .2s;
@@ -100,7 +101,7 @@ span {
 input::placeholder {
     padding: 10px;
     font-size: 16px;
-    color: rgb(231, 18, 189, 0.797);
+    color: rgba(255, 19, 208, 0.797);
 }
 i {
     border: 5px solid #00000000;
@@ -495,15 +496,17 @@ td{
 
 /* MAP */
 #map{
-    min-height: 500px;
-    min-width: 500px;
+    min-width: 100px;
+    min-height: 100px;
+    height: 500px;
+    width: 600px;
     max-width: 50%;
     margin: 10px;
     border-radius: 10px;
 }
 
 
-
+/* ATTRACTIONS*/
 #attractionDisplay {
     display: none;
     border-radius: 10px;
@@ -511,6 +514,8 @@ td{
 #wrapper{
     display: flex;
     flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
 }
 #attractions{
     background-color: #0000cd89;
@@ -519,6 +524,7 @@ td{
     height: 500px;
     overflow-y: scroll;
     border-radius: 10px;
+    width: 60%;
 }
 #attractions div {
     border-bottom: 2px solid #d31ed3;
@@ -526,7 +532,10 @@ td{
 #attractions div img {
     float: left;
     height: 70px;
+    width: 70px;
 }
+
+/* LOADING ANIMATION */
 .loading {
     width: 50px;
     height: 50px;
@@ -555,11 +564,19 @@ td{
 }
 
 .timeBlock textarea{
+    background-color: #0000cd89;
     width: 80vw;
     height: 80px;
 }
 .timeBlock textarea, .timeBlock textarea::placeholder{
     font-size: 40px;
+}
+.timeBlock textarea {
+    color: #fff700;
+}
+.timeBlock textarea::placeholder{
+    color: #fff700c9;
+    
 }
 .timeBlock p {
     display: flex;
@@ -567,14 +584,28 @@ td{
     font-size: 50px;
     width: 20vw;
     height: 80px;
+    border-left: 2px solid #d31ed3;
     border-bottom: 2px solid #d31ed3;
     background-color: #0000cd89;
     color: #fff700;
 }
 #itinerary button{
     cursor: pointer;
-    margin: 0;
-    padding: 0 10px 0 0 ;
+    margin: 3px;
+    padding: 10px;
+    width: 100px;
+    border-radius: 15px;
+    background-color: #e712bcdd;
+    color: #08a9ff;
+    font-weight: bolder;
+}
+#interaryButton{
+    font-size: 25px;
+}
+#itinerary input{
+    width: 190px;
+    margin-bottom: 3px;
+    background-color: #0000cd89;
 }
 #intinerary h2{
     min-height: 10px;
@@ -599,24 +630,101 @@ td{
     }
   }
  
+  @media only screen and (max-width: 1023px){
+    h1{
+        font-size: 40px;
+    }
+    #attractions {
+        width: 100%;
+    }
+    #wrapper{
+        flex-direction: column;
+    }
+    div {
+        align-items: center;
+    }
+  }
+  @media screen and (max-width: 698px){
+    h1{
+        font-size: 30px;
+        margin-right: 55px;
+    }
+    header{
+        flex-direction: column;
+        height: 150px;
+        align-items: flex-end;
+    }
+  }
+  @media screen and (max-width: 652px){
+    #itineraryWrapper p{
+        font-size: 30px;
+    }
+    h1{
+        font-size: 25px;
+        margin-right: 55px;
+    }
+    header{
+        flex-direction: column;
+        height: 150px;
+        align-items: flex-end;
+    }
+  }
   @media screen and (max-width: 580px){
     #modalButtons{
         flex-direction: column;
     }
+    #itineraryWrapper p{
+        font-size: 30px;
+    }
+    h1{
+        font-size: 20px;
+        margin-right: 55px;
+    }
+    header{
+        flex-direction: column;
+        height: 150px;
+        align-items: flex-end;
+    }
   }
   @media screen and (max-width: 500px){
+    header{
+        flex-direction: column;
+        height: 150px;
+        align-items: flex-end;
+    }
+    h1{
+        font-size: 20px;
+    }
     .swagButtons{
         font-size: 14px;
     }
     #modalButtons{
         flex-direction: column;
     }
+    #wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    #attractions {
+        width: 100%;
+    }
+    #saveDate {
+        font-size: 50px;
+    }
+    #itineraryWrapper p{
+        font-size: 25px;
+    }
+    #itineraryWrapper textarea,#itineraryWrapper textarea::placeholder{
+        font-size: 30px;
+    }
+    #map {
+        min-width: 300px;
+        min-height: 300px;
+    }
+    #attractions div p{
+        font-size: 15px;
+    }
   }
   
 
-  @media only screen and (max-width: 1024px){
-    #wrapper{
-        flex-direction: column;
-    }
-  }
 
