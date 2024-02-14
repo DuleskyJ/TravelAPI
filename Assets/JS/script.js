@@ -1,32 +1,52 @@
-var teleportButton = $("#teleportButton");
+//HEADER AND LANDING PAGE ELEMENTS
 var submitBox = $("#submitBox");
+var teleportBox = $('#teleportBox');
 var submitButton = $('#submitButton');
+var teleportButton = $("#teleportButton");
+
+// MODAL ELEMENTS
+var modal = $('.modal')
 var goButton = $('#go');
+var userCity = $('#usercity');
 var RandomButton = $('#Random');
 var datepicker = $('#datepicker');
-var userCity = $('#usercity');
+
+//ATTRACTION ELEMENTS
 var attractions = $('#attractions');
-var itineraryWrapper = $('#itineraryWrapper');
-var itineraryButton = $('#itineraryButton');
+var attractionDisplay = $('#attractionDisplay');
+
+// ITINERARY ELEMENTS
 var saveDate = $('#saveDate');
+var timeBlock = $('.timeBlock');
+var itineraryButton = $('#itineraryButton');
+var itineraryWrapper = $('#itineraryWrapper');
+
+//FOR LOADING ANIMATION
+var loadingDiv = $('#loadingDiv');
+
+//LIST FOR RANDOMIZER
 var cityList = ['Tokyo', 'Rome', 'Paris', 'London', 'New York', 'Istanbul', 'Barcelona', 
 'Amsterdam', 'Dubai', 'Singapore', 'Bangkok', 'Berlin', 'Cape Town', 'Seoul', 'Hong Kong', 
 'Marrakech', 'Mumbai', 'Prague', 'Madrid', 'Vancouver', 'Sydney', 'Taipei', 'Copenhagen', 'Edinburgh'];
 
-//displays modal and removes teleport button
+//EVENT LISTENERS
+//DISPLAYS MODAL AND REMOVES LANDING PAGE BUTTON
 teleportButton.click(function (event) {
     event.preventDefault();
-    $('.modal').attr('class', 'modal is-active');
-    $('#teleportBox').attr('style', 'display: none');
+
+    modal.attr('class', 'modal is-active'); //ACTIVATES MODAL
+    teleportBox.attr('style', 'display: none'); //HIDES MAIN BUTTON
 }); 
 
 
 itineraryButton.click(function (event) {
     event.preventDefault();
-    var itinerarySchedule = {};
-    var counter = 0;
-    var saveDatetemp = saveDate.text();
-    $('.timeBlock').each(function(){
+
+    var itinerarySchedule = {}; //INITIALIZE EMPTY OBJECT
+    var counter = 0; //START COUNTER FOR DOM LOOP
+    var saveDatetemp = saveDate.text(); //GRABS SELECTED DATE
+
+    timeBlock.each(function(){ //ITERATES THROUGH ITINERARY TO SAVE VALUES TO OBJECT
         if (counter<10) {
             itinerarySchedule[counter] = $('#0'+counter).val();
         } else {
@@ -34,20 +54,22 @@ itineraryButton.click(function (event) {
         }
         counter++;
     })
-    console.log(itinerarySchedule);
-    var test = JSON.stringify(itinerarySchedule);
-    localStorage.setItem(saveDatetemp, test);
+
+    var temp = JSON.stringify(itinerarySchedule); 
+    localStorage.setItem(saveDatetemp, temp); //SAVES ITINERARY WITH SELECTED DATE AS ITS KEY
 })
 
 //changes response screen based on new user input
 submitButton.click(function (event) {
     event.preventDefault();
-    attractions.html('')
-    $('#attractionDisplay').attr('style', 'display: none');
-    $('#loadingDiv').attr('class','loading');
-    $('#loadingDiv').attr('style', 'display: block');
+
     var cityName = submitBox.val();
-    if (cityName) {
+    attractions.html('')
+    attractionDisplay.attr('style', 'display: none');
+    loadingDiv.attr('class','loading');
+    loadingDiv.attr('style', 'display: block');
+    
+    if (cityName) {//ONLY RUNS FUNCTIONS IF USER ENTERS TEXT IN SEARCH BAR
         getCityID(cityName)
         getCoordinates(cityName)
     } else {
@@ -60,7 +82,8 @@ goButton.click(function(event) {
     event.preventDefault();
     var cityName = userCity.val();
     saveDate.text(datepicker.val());
-    if(cityName){
+
+    if(cityName){//ONLY RUNS FUNCTIONS IF USER ENTERS TEXT IN SEARCH BAR
         makeLoadAnimation()
         getCityID(cityName)
         getCoordinates(cityName)
@@ -83,7 +106,7 @@ $('#loadReset').click(function(event){
     if (flushObject!='[object Object]' && flushObject) {
         var itinerarySchedule = JSON.parse(flushObject);
         var counter = 0;
-        $('.timeBlock').each(function(){
+        timeBlock.each(function(){
             if (counter<10) {
                 $('#0'+counter).val(itinerarySchedule[counter]);
             } else {
@@ -93,7 +116,7 @@ $('#loadReset').click(function(event){
         })
     } else if (flushObject=='[object Object]' || !flushObject) {
         var counter = 0;
-        $('.timeBlock').each(function(){
+        timeBlock.each(function(){
             if (counter<10) {
                 $('#0'+counter).val('');
             } else {
@@ -161,9 +184,9 @@ function getAttractions (cityID) {
         .then(response => response.json())
         .then(data => {
             console.log(data)
-            $('#loadingDiv').attr('class','notloading');
-            $('.modal').attr('class', 'modal');
-            $('#attractionDisplay').attr('style', 'display: block');
+            loadingDiv.attr('class','notloading');
+            modal.attr('class', 'modal');
+            attractionDisplay.attr('style', 'display: block');
             $('#teleportSearch').attr('style', 'display: block');
             //add where the data needs to be displayed here
             itineraryWrapper.html('');
