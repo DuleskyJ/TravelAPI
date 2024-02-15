@@ -26,6 +26,8 @@ If the user attempts to click 'lets go' without entering a city or date a pop-up
 ### Itinerary
 
 If this is the first time the selected date has been used, it will generate an empty Itinerary. The user can enter the attractions they want to visit and at what times in hour increments. To change dates, simply click the 'change date' input box and select a new date from the datepicker and click 'load/reset'. !NOTICE! Pressing 'load/reset' will undo any unsaved changes to the itinerary. To save the itinerary press the button with the save icon(the top button). Once saved, the user can return to that date and the saved itinerary will persist.
+
+
 ![screenshot of the Coding Bros Travel App](./Assets/landingPageScreenshot.png)
 ![second screenshot of the Coding Bros Travel App](./Assets/secondScreenShot.png)
 ![third screenshot of the Coding Bros Travel App](./Assets/thirdScreenShot.jpg)
