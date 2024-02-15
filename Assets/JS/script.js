@@ -1,3 +1,4 @@
+$(function(){
 //HEADER AND LANDING PAGE ELEMENTS
 var submitBox = $("#submitBox");
 var teleportBox = $('#teleportBox');
@@ -28,6 +29,12 @@ var loadingDiv = $('#loadingDiv');
 var cityList = ['Tokyo', 'Rome', 'Paris', 'London', 'New York', 'Istanbul', 'Barcelona', 
 'Amsterdam', 'Dubai', 'Singapore', 'Bangkok', 'Berlin', 'Cape Town', 'Seoul', 'Hong Kong', 
 'Marrakech', 'Mumbai', 'Prague', 'Madrid', 'Vancouver', 'Sydney', 'Taipei', 'Copenhagen', 'Edinburgh'];
+
+//LIST FOR COORDINATES
+var location;
+var markerCoords = {
+    0: {},
+};
 
 //EVENT LISTENERS
 //DISPLAYS MODAL AND REMOVES LANDING PAGE BUTTON
@@ -70,7 +77,6 @@ submitButton.click(function (event) {
     loadingDiv.attr('style', 'display: block');
     
     if (cityName) {//ONLY RUNS FUNCTIONS IF USER ENTERS TEXT IN SEARCH BAR
-        getCityID(cityName)
         getCoordinates(cityName)
     } else {
         alert("We know you're excited but you need to enter a city first!");
@@ -85,7 +91,6 @@ goButton.click(function(event) {
 
     if(cityName){//ONLY RUNS FUNCTIONS IF USER ENTERS TEXT IN SEARCH BAR
         makeLoadAnimation()
-        getCityID(cityName)
         getCoordinates(cityName)
     } else {
         alert("We know you're excited but you need to enter a city first!\nOr press 'Take Me Somewhere!' for a random adventure!");
@@ -132,19 +137,24 @@ $('#Random').click(function(event){
     randomizer();
 })
 
-function initMap(x, y) {
+function initMap(markerCoords) {
     // The location of your map center
-    var center = { lat: x, lng: y };
+    var center = { lat: location.lat, lng: location.lng }; // attempt multidimensional array object
     // The map, centered at your location
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 11,
         center: center
     });
-    // The marker, positioned at your location
-    var marker = new google.maps.Marker({
-        position: center,
-        map: map
-    });
+    // markers for attractions
+    var markers = [];
+    for (key in markerCoords) {
+        markers += [ new google.maps.Marker({
+            position: { lat: markerCoords[key][0], lng: markerCoords[key][1]},
+            map: map,
+            title: markerCoords[key][2]
+        })]
+    }
+
 }
 
 function getCoordinates(cityName) {
@@ -154,9 +164,9 @@ function getCoordinates(cityName) {
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            var location = data.results[0].geometry.location;
+            location = data.results[0].geometry.location;
             // Use the latitude and longitude to display a map centered on the city
-            initMap(location.lat, location.lng);
+            getCityID(cityName)
         })
         .catch(error => console.error('Error:', error));
 
@@ -190,6 +200,16 @@ function getAttractions (cityID) {
             $('#teleportSearch').attr('style', 'display: block');
             //add where the data needs to be displayed here
             itineraryWrapper.html('');
+            var newCounter = 0;
+            data.results.data.forEach(function(element) {
+                markerCoords[newCounter] = {
+                0: parseFloat(element.latitude),
+                1: parseFloat(element.longitude),
+                2: element.name
+            }
+            newCounter++;
+            })
+            initMap(markerCoords);
             for (var i = 0; i < 23; i++){
                 var timeDiv = $('<div>');
                 var timeP = $('<p>');
@@ -282,6 +302,10 @@ function randomizer() {
     saveDate.text(dayjs().format("MM/DD/YYYY"));
     makeLoadAnimation();
     var cityName = cityList[ranNum];
-    getCityID(cityName);
     getCoordinates(cityName);
 }
+
+
+
+    
+})//MUST BE AT BOTTOM
